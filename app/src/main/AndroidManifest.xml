@@ -1,0 +1,63 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.karl.template">
+
+    <!-- TODO: Permissions that required by the app -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- TODO: Settings required by Google Play Service -->
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/airbolt_api_key" />
+
+
+        <activity
+            android:name=".view.activity.SplashActivity"
+            android:label="@string/splash_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.activity.auth.IntroActivity"
+            android:label="@string/intro_label" />
+
+        <service
+            android:name=".service.DfuService"
+            android:exported="false"
+            android:stopWithTask="false" />
+
+        <!-- TODO: *Remove* This is generated automatically if you integrate with Fabric-->
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="" />
+    </application>
+
+</manifest>
